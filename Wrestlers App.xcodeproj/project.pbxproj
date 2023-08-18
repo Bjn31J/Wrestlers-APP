@@ -9,13 +9,20 @@
 /* Begin PBXBuildFile section */
 		4A054F4A2A638F7500860094 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A054F492A638F7500860094 /* AppDelegate.swift */; };
 		4A054F4C2A638F7500860094 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A054F4B2A638F7500860094 /* SceneDelegate.swift */; };
-		4A054F4E2A638F7500860094 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A054F4D2A638F7500860094 /* ViewController.swift */; };
+		4A054F4E2A638F7500860094 /* WrestlersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A054F4D2A638F7500860094 /* WrestlersViewController.swift */; };
 		4A054F512A638F7500860094 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A054F4F2A638F7500860094 /* Main.storyboard */; };
 		4A054F532A638F7500860094 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A054F522A638F7500860094 /* Assets.xcassets */; };
 		4A054F562A638F7500860094 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A054F542A638F7500860094 /* LaunchScreen.storyboard */; };
 		4A054F612A638F7500860094 /* Wrestlers_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A054F602A638F7500860094 /* Wrestlers_AppTests.swift */; };
 		4A054F6B2A638F7500860094 /* Wrestlers_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A054F6A2A638F7500860094 /* Wrestlers_AppUITests.swift */; };
 		4A054F6D2A638F7500860094 /* Wrestlers_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A054F6C2A638F7500860094 /* Wrestlers_AppUITestsLaunchTests.swift */; };
+		4A054F7A2A63949F00860094 /* WrestlerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A054F792A63949F00860094 /* WrestlerItem.swift */; };
+		4A054F7C2A63A19F00860094 /* WrestlerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A054F7B2A63A19F00860094 /* WrestlerDetailsViewController.swift */; };
+		4A4577592A71C80200D3E096 /* UpcomingFightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4577582A71C80200D3E096 /* UpcomingFightsViewController.swift */; };
+		4A45775B2A71D51C00D3E096 /* FightOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45775A2A71D51C00D3E096 /* FightOverviewViewController.swift */; };
+		4A4F02172A8D4DF400707260 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F02162A8D4DF400707260 /* DataModel.swift */; };
+		4A5AB9372A8595C500669960 /* PickWrestler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5AB9362A8595C500669960 /* PickWrestler.swift */; };
+		4A7436E02A6DEA4A00D8D2E6 /* FightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7436DF2A6DEA4A00D8D2E6 /* FightItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +46,7 @@
 		4A054F462A638F7500860094 /* Wrestlers App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wrestlers App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A054F492A638F7500860094 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A054F4B2A638F7500860094 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4A054F4D2A638F7500860094 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4A054F4D2A638F7500860094 /* WrestlersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrestlersViewController.swift; sourceTree = "<group>"; };
 		4A054F502A638F7500860094 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A054F522A638F7500860094 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A054F552A638F7500860094 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +56,13 @@
 		4A054F662A638F7500860094 /* Wrestlers AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wrestlers AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A054F6A2A638F7500860094 /* Wrestlers_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrestlers_AppUITests.swift; sourceTree = "<group>"; };
 		4A054F6C2A638F7500860094 /* Wrestlers_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrestlers_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4A054F792A63949F00860094 /* WrestlerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrestlerItem.swift; sourceTree = "<group>"; };
+		4A054F7B2A63A19F00860094 /* WrestlerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrestlerDetailsViewController.swift; sourceTree = "<group>"; };
+		4A4577582A71C80200D3E096 /* UpcomingFightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingFightsViewController.swift; sourceTree = "<group>"; };
+		4A45775A2A71D51C00D3E096 /* FightOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightOverviewViewController.swift; sourceTree = "<group>"; };
+		4A4F02162A8D4DF400707260 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		4A5AB9362A8595C500669960 /* PickWrestler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickWrestler.swift; sourceTree = "<group>"; };
+		4A7436DF2A6DEA4A00D8D2E6 /* FightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +114,19 @@
 			isa = PBXGroup;
 			children = (
 				4A054F492A638F7500860094 /* AppDelegate.swift */,
-				4A054F4B2A638F7500860094 /* SceneDelegate.swift */,
-				4A054F4D2A638F7500860094 /* ViewController.swift */,
-				4A054F4F2A638F7500860094 /* Main.storyboard */,
 				4A054F522A638F7500860094 /* Assets.xcassets */,
-				4A054F542A638F7500860094 /* LaunchScreen.storyboard */,
+				4A7436DF2A6DEA4A00D8D2E6 /* FightItem.swift */,
+				4A45775A2A71D51C00D3E096 /* FightOverviewViewController.swift */,
 				4A054F572A638F7500860094 /* Info.plist */,
+				4A054F542A638F7500860094 /* LaunchScreen.storyboard */,
+				4A054F4F2A638F7500860094 /* Main.storyboard */,
+				4A5AB9362A8595C500669960 /* PickWrestler.swift */,
+				4A054F4B2A638F7500860094 /* SceneDelegate.swift */,
+				4A4577582A71C80200D3E096 /* UpcomingFightsViewController.swift */,
+				4A4F02162A8D4DF400707260 /* DataModel.swift */,
+				4A054F7B2A63A19F00860094 /* WrestlerDetailsViewController.swift */,
+				4A054F792A63949F00860094 /* WrestlerItem.swift */,
+				4A054F4D2A638F7500860094 /* WrestlersViewController.swift */,
 			);
 			path = "Wrestlers App";
 			sourceTree = "<group>";
@@ -258,8 +279,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A054F4E2A638F7500860094 /* ViewController.swift in Sources */,
+				4A7436E02A6DEA4A00D8D2E6 /* FightItem.swift in Sources */,
+				4A054F7A2A63949F00860094 /* WrestlerItem.swift in Sources */,
+				4A45775B2A71D51C00D3E096 /* FightOverviewViewController.swift in Sources */,
+				4A5AB9372A8595C500669960 /* PickWrestler.swift in Sources */,
+				4A054F4E2A638F7500860094 /* WrestlersViewController.swift in Sources */,
+				4A4F02172A8D4DF400707260 /* DataModel.swift in Sources */,
+				4A054F7C2A63A19F00860094 /* WrestlerDetailsViewController.swift in Sources */,
 				4A054F4A2A638F7500860094 /* AppDelegate.swift in Sources */,
+				4A4577592A71C80200D3E096 /* UpcomingFightsViewController.swift in Sources */,
 				4A054F4C2A638F7500860094 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,8 +470,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -469,8 +497,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -5,15 +5,51 @@
 //  Created by Benjamin Jaramillo on 23/07/23.
 //
 
-import Foundation
+import UIKit
+import UserNotifications
 
-class Fight {
-    var opponent: String
-    var date: String
+class FightItem: NSObject, Codable {
     
-    init(opponent: String, date: String) {
+    var opponent: WrestlerItem?
+    var date: Date
+    var local: WrestlerItem
+    var itemID = -1
+    
+    init(opponent: WrestlerItem?, date: Date, local: WrestlerItem) {
         self.opponent = opponent
         self.date = date
+        self.local = local
+        super.init()
+        itemID = DataModel.nextChecklistsItemID()
+    }
+    
+    func scheduleNotification() {
+        removeNotification()
+        
+        if date > Date() {
+            let content = UNMutableNotificationContent()
+            content.title = "Reminder:"
+            content.body = "Pelea"
+            content.sound = .default
+            
+            let calendar = Calendar(identifier: .gregorian)
+            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+            let request = UNNotificationRequest(identifier: "\(itemID)", content: content, trigger: trigger)
+            
+            let center = UNUserNotificationCenter.current()
+            center.add(request)
+            print("Scheduled: \(request) for itemID: \(itemID)")
+        }
+    }
+    
+    func removeNotification() {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: ["\(itemID)"])
+    }
+    
+    deinit {
+        removeNotification()
     }
 }
-
