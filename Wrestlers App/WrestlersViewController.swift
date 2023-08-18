@@ -13,6 +13,15 @@ class WrestlersViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+        let wrestler1 = WrestlerItem(name: "La Parka", imageName: "laparka", description: "El mejor de México")
+        dataModel.Wrestlers .append(wrestler1)
+        
+        let wrestler2 = WrestlerItem(name: "Kemonito", imageName: "kemonito", description: "Kemonito es lo bonito")
+        dataModel.Wrestlers .append(wrestler2)
+        
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "WrestlerItem")
+        
+        
     }
     
    func navigationController(

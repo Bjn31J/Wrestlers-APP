@@ -29,6 +29,13 @@ class WrestlerDetailsViewController: UIViewController {
             
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "showUpcomingFights" {
+                if let upcomingFightsViewController = segue.destination as? UpcomingFightsViewController {
+                    upcomingFightsViewController.wrestlers = wrestler
+                }
+            }
+        }
     
     @IBAction func UpcomingFight(){
     performSegue(withIdentifier: "showUpcomingFights", sender: self)
