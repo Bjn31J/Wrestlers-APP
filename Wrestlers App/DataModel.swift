@@ -42,12 +42,7 @@ class DataModel {
         let userDefaults = UserDefaults.standard
         let firstTime = userDefaults.bool(forKey: "FirstTime")
         if firstTime {
-            let wrestler1 = WrestlerItem(name: "La Parka", imageName: "laparka", description: "El mejor de México")
-            Wrestlers .append(wrestler1)
-            
-            let wrestler2 = WrestlerItem(name: "Kemonito", imageName: "kemonito", description: "Kemonito es lo bonito")
-            Wrestlers .append(wrestler2)
-            
+        
             indexOfSelectedWrestler = 0
             
             userDefaults.set(false, forKey: "FirstTime")
@@ -77,7 +72,7 @@ class DataModel {
     }
 
     init() {
-        loadWrestlers() 
+        loadWrestlers()
         registerDefaults()
         handleFirstTime()
     }

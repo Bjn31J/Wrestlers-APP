@@ -8,33 +8,33 @@
 import UIKit
 
 class UpcomingFightsViewController: UITableViewController, FightOverviewViewControllerDelegate {
-    var fights = [FightItem]()
+    var Fights = [FightItem]()
     var wrestlers: WrestlerItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        let fight1 = FightItem(opponent: WrestlerItem(name: "Kemonito", imageName: "kemonito", description: "Kemonito es lo bonito"), date: Date(), local: WrestlerItem(name: "La Parka", imageName:  "laparka" , description: "El mejor de México"))
+        let fight1 = FightItem(opponent: WrestlerItem(name: "Kemonito", imageName: "kemonito", description: "Kemonito es lo bonito",fights: [FightItem]()), date: Date(), local: WrestlerItem(name: "La Parka", imageName:  "laparka" , description: "El mejor de México",fights: [FightItem]()))
 
-        fights.append(fight1)
+        Fights.append(fight1)
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "FightItem")
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fights.count
+        return Fights.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FightItem", for: indexPath)
-        let item = fights[indexPath.row]
+        let item = Fights[indexPath.row]
         configureText(for: cell, with: item)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedFight = fights[indexPath.row]
+        let selectedFight = Fights[indexPath.row]
         performSegue(withIdentifier: "showFightOverview", sender: selectedFight)
     }
 
@@ -47,11 +47,13 @@ class UpcomingFightsViewController: UITableViewController, FightOverviewViewCont
             }
         } else if segue.identifier == "AddFight" {
             if let fightOverviewViewController = segue.destination as? FightOverviewViewController {
-                if let wrestler = wrestlers {
+                if let wrestler = wrestlers{
                     let localWrestler = WrestlerItem(
                         name: wrestler.name,
                         imageName: wrestler.imageName,
-                        description: wrestler.wrestlerDescription
+                        description: wrestler.wrestlerDescription,
+                        fights: wrestler.fights
+                       
                     )
                     let newFight = FightItem(opponent: nil, date: Date(), local: localWrestler)
                     fightOverviewViewController.fight = newFight
@@ -71,8 +73,8 @@ class UpcomingFightsViewController: UITableViewController, FightOverviewViewCont
     }
 
     func fightDetailViewController(_ controller: FightOverviewViewController, didFinishAdding item: FightItem) {
-        let newRowIndex = fights.count
-        fights.append(item)
+        let newRowIndex = Fights.count
+        Fights.append(item)
 
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
@@ -86,3 +88,4 @@ class UpcomingFightsViewController: UITableViewController, FightOverviewViewCont
         }
     }
 }
+

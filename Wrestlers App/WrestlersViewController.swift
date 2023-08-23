@@ -8,33 +8,33 @@
 import UIKit
 
 class WrestlersViewController: UITableViewController {
-    var dataModel: DataModel!
-    
+    var dataModel : DataModel!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        let wrestler1 = WrestlerItem(name: "La Parka", imageName: "laparka", description: "El mejor de México")
-        dataModel.Wrestlers .append(wrestler1)
         
-        let wrestler2 = WrestlerItem(name: "Kemonito", imageName: "kemonito", description: "Kemonito es lo bonito")
-        dataModel.Wrestlers .append(wrestler2)
+        let wrestler1 = WrestlerItem(name: "La Parka", imageName: "laparka", description: "El mejor de México",fights: [FightItem]())
+        dataModel.Wrestlers.append(wrestler1)
         
-        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "WrestlerItem")
+        let wrestler2 = WrestlerItem(name: "Kemonito", imageName: "kemonito", description: "Kemonito es lo bonito",fights: [FightItem]())
+        dataModel.Wrestlers.append(wrestler2)
         
-        
+        let wrestler3 = WrestlerItem(name: "Alushe", imageName: "alushe", description: "Creatura mitica Mexicana",fights: [FightItem]())
+        dataModel.Wrestlers.append(wrestler3)
+               
+        let wrestler4 = WrestlerItem(name: "Octagon Jr", imageName: "octagon", description: "El oriental mas Mexiccano",fights: [FightItem]())
+        dataModel.Wrestlers.append(wrestler4)
+               
+        let wrestler5 = WrestlerItem(name: "Super Porky", imageName: "superporky", description: "Debe sudar chesco",fights: [FightItem]())
+        dataModel.Wrestlers.append(wrestler5)
+               
+        let wrestler6 = WrestlerItem(name: "Chessman", imageName: "chessman", description: "Disipulo del devil",fights: [FightItem]())
+        dataModel.Wrestlers.append(wrestler6)
+    
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "FightItem")
     }
     
-   func navigationController(
-      _ navigationController: UINavigationController,
-      willShow viewController: UIViewController,
-      animated: Bool
-    ) {
-    
-      if viewController === self {
-          dataModel.indexOfSelectedWrestler = -1
-      }
-    }
-
     override func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {

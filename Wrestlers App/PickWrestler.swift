@@ -19,11 +19,24 @@ class PickWrestler: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        let wrestler1 = WrestlerItem(name: "La Parka", imageName: "laparka", description: "El mejor de México")
+        let wrestler1 = WrestlerItem(name: "La Parka", imageName: "laparka", description: "El mejor de México",fights: [FightItem]())
         wrestlers.append(wrestler1)
 
-        let wrestler2 = WrestlerItem(name: "Kemonito", imageName: "kemonito", description: "Kemonito es lo bonito")
+        let wrestler2 = WrestlerItem(name: "Kemonito", imageName: "kemonito", description: "Kemonito es lo bonito",fights: [FightItem]())
         wrestlers.append(wrestler2)
+        
+        let wrestler3 = WrestlerItem(name: "Alushe", imageName: "alushe", description: "Creatura mitica Mexicana",fights: [FightItem]())
+        wrestlers.append(wrestler3)
+               
+        let wrestler4 = WrestlerItem(name: "Octagon Jr", imageName: "octagon", description: "El oriental mas Mexiccano",fights: [FightItem]())
+        wrestlers.append(wrestler4)
+               
+        let wrestler5 = WrestlerItem(name: "Super Porky", imageName: "superporky", description: "Debe sudar chesco",fights: [FightItem]())
+        wrestlers.append(wrestler5)
+               
+        let wrestler6 = WrestlerItem(name: "Chessman", imageName: "chessman", description: "Disipulo del devil",fights: [FightItem]())
+        wrestlers.append(wrestler6)
+    
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "WrestlerItem")
     }
