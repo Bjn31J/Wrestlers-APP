@@ -6,10 +6,15 @@
 //
 
 import UIKit
+//añado delegate
+protocol UpcomingFightsViewControllerDelegate: AnyObject {
+    func upcomingFightsViewController(_ controller: UpcomingFightsViewController, didAddFight fight: FightItem)
+}
 
 class UpcomingFightsViewController: UITableViewController, FightOverviewViewControllerDelegate {
     var Fights = [FightItem]()
     var wrestlers: WrestlerItem?
+    weak var delegate: UpcomingFightsViewControllerDelegate?//delegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +84,7 @@ class UpcomingFightsViewController: UITableViewController, FightOverviewViewCont
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
+        delegate?.upcomingFightsViewController(self, didAddFight: item)//delegado para añadir fight
         navigationController?.popViewController(animated: true)
     }
 

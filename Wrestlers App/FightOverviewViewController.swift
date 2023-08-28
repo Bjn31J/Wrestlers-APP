@@ -38,7 +38,7 @@ class FightOverviewViewController: UIViewController, PickWrestlerViewControllerD
             title = "Fight Overview"
             localImageView.image = UIImage(named: fight.local.imageName)
             localLabel.text = fight.local.name
-            datePicker.date = fight.date
+            datePicker.date = fight.dueDate
             if let opponent = fight.opponent {
                 opponentImageView.image = UIImage(named: opponent.imageName)
                 opponentLabel.text = opponent.name
@@ -51,15 +51,8 @@ class FightOverviewViewController: UIViewController, PickWrestlerViewControllerD
             title = "Add Fight"
             localImageView.image = UIImage(named: fight.local.imageName)
             localLabel.text = fight.local.name
-            datePicker.date = fight.date
+            datePicker.date = fight.dueDate
             fight.scheduleNotification()
-            
-            let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [.alert, .sound]) {_, _
-       in
-             // do nothing
-           }
-            
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOpponentImageView))

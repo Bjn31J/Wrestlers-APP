@@ -11,13 +11,13 @@ import UserNotifications
 class FightItem: NSObject, Codable {
     
     var opponent: WrestlerItem?
-    var date: Date
+    var dueDate = Date()
     var local: WrestlerItem
     var itemID = -1
     
     init(opponent: WrestlerItem?, date: Date, local: WrestlerItem) {
         self.opponent = opponent
-        self.date = date
+        self.dueDate = date
         self.local = local
         super.init()
         itemID = DataModel.nextChecklistsItemID()
@@ -26,14 +26,14 @@ class FightItem: NSObject, Codable {
     func scheduleNotification() {
         removeNotification()
         
-        if date > Date() {
+        if dueDate > Date() {
             let content = UNMutableNotificationContent()
             content.title = "Reminder:"
             content.body = "Pelea"
             content.sound = .default
             
             let calendar = Calendar(identifier: .gregorian)
-            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: dueDate)
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
             let request = UNNotificationRequest(identifier: "\(itemID)", content: content, trigger: trigger)

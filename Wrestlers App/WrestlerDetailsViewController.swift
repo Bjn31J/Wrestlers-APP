@@ -6,8 +6,10 @@
 //
 import UIKit
 
-class WrestlerDetailsViewController: UIViewController {
+class WrestlerDetailsViewController: UIViewController ,UpcomingFightsViewControllerDelegate {
     var wrestler: WrestlerItem?
+    var dataModel : DataModel!
+
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var descriptionLabel: UILabel!
@@ -30,12 +32,20 @@ class WrestlerDetailsViewController: UIViewController {
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "showUpcomingFights" {
-                if let upcomingFightsViewController = segue.destination as? UpcomingFightsViewController {
-                    upcomingFightsViewController.wrestlers = wrestler
-                }
+        if segue.identifier == "showUpcomingFights" {
+            if let upcomingFightsViewController = segue.destination as? UpcomingFightsViewController {
+                upcomingFightsViewController.delegate = self
+                upcomingFightsViewController.wrestlers = wrestler
             }
         }
+        
+    }
+    
+    func upcomingFightsViewController(_ controller: UpcomingFightsViewController, didAddFight fight: FightItem) {
+          wrestler?.addFight(fight)
+          dataModel?.saveWrestlers()
+      }
+    
     
     @IBAction func UpcomingFight(){
     performSegue(withIdentifier: "showUpcomingFights", sender: self)

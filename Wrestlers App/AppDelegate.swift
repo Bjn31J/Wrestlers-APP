@@ -14,8 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func application(
         _ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             let center = UNUserNotificationCenter.current()
-            center.delegate = self
-        return true
+                   center.delegate = self
+                   center.requestAuthorization(options: [.alert, .sound]) { _, _ in }
+                   
+                   return true
     }
 
     // MARK: UISceneSession Lifecycle

@@ -23,7 +23,7 @@ class WrestlersViewController: UITableViewController {
         let wrestler3 = WrestlerItem(name: "Alushe", imageName: "alushe", description: "Creatura mitica Mexicana",fights: [FightItem]())
         dataModel.Wrestlers.append(wrestler3)
                
-        let wrestler4 = WrestlerItem(name: "Octagon Jr", imageName: "octagon", description: "El oriental mas Mexiccano",fights: [FightItem]())
+        let wrestler4 = WrestlerItem(name: "Octagon Jr", imageName: "octagon", description: "El oriental mas Mexicano",fights: [FightItem]())
         dataModel.Wrestlers.append(wrestler4)
                
         let wrestler5 = WrestlerItem(name: "Super Porky", imageName: "superporky", description: "Debe sudar chesco",fights: [FightItem]())

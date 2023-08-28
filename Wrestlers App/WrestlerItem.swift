@@ -19,6 +19,9 @@ class WrestlerItem: NSObject, Codable {
         self.wrestlerDescription = description
         self.fights = fights
     }
+    func addFight(_ fight: FightItem) {
+           fights.append(fight)
+    }
 }
 
 
