@@ -12,7 +12,7 @@ protocol UpcomingFightsViewControllerDelegate: AnyObject {
 }
 
 class UpcomingFightsViewController: UITableViewController, FightOverviewViewControllerDelegate {
-    var Fights = [FightItem]()
+    var fights: [FightItem] = []
     var wrestlers: WrestlerItem?
     weak var delegate: UpcomingFightsViewControllerDelegate?//delegate
 
@@ -20,26 +20,26 @@ class UpcomingFightsViewController: UITableViewController, FightOverviewViewCont
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        let fight1 = FightItem(opponent: WrestlerItem(name: "Kemonito", imageName: "kemonito", description: "Kemonito es lo bonito",fights: [FightItem]()), date: Date(), local: WrestlerItem(name: "La Parka", imageName:  "laparka" , description: "El mejor de México",fights: [FightItem]()))
-
-        Fights.append(fight1)
+        if let wrestlerFights = wrestlers?.fights {
+                   fights = wrestlerFights // Inicializa 'fights' con las peleas del objeto wrestlers
+               }
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "FightItem")
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Fights.count
+        return fights.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FightItem", for: indexPath)
-        let item = Fights[indexPath.row]
+        let item = fights[indexPath.row]
         configureText(for: cell, with: item)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedFight = Fights[indexPath.row]
+        let selectedFight = fights[indexPath.row]
         performSegue(withIdentifier: "showFightOverview", sender: selectedFight)
     }
 
@@ -78,8 +78,8 @@ class UpcomingFightsViewController: UITableViewController, FightOverviewViewCont
     }
 
     func fightDetailViewController(_ controller: FightOverviewViewController, didFinishAdding item: FightItem) {
-        let newRowIndex = Fights.count
-        Fights.append(item)
+        let newRowIndex = fights.count
+        fights.append(item)
 
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]

@@ -24,7 +24,7 @@ class FightItem: NSObject, Codable {
     }
     
     func scheduleNotification() {
-        removeNotification()
+         removeNotification()
         
         if dueDate > Date() {
             let content = UNMutableNotificationContent()

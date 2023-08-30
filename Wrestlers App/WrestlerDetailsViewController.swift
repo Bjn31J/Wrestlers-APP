@@ -42,9 +42,11 @@ class WrestlerDetailsViewController: UIViewController ,UpcomingFightsViewControl
     }
     
     func upcomingFightsViewController(_ controller: UpcomingFightsViewController, didAddFight fight: FightItem) {
-          wrestler?.addFight(fight)
-          dataModel?.saveWrestlers()
-      }
+        if let wrestler = wrestler {
+                   wrestler.addFight(fight)
+                   dataModel?.saveWrestlers()
+        }
+    }
     
     
     @IBAction func UpcomingFight(){
